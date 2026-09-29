@@ -34,7 +34,7 @@ public class TypedValue {
    */
   public static final String STORED_FILE_PATH = "storedfiles";
 
-  public static final String RES_FILE_PATH = "laba";
+  public static final String RES_FILE_PATH = "r";
 
   public static final String RES_MAPPING_FILE = "resource_mapping_";
 
