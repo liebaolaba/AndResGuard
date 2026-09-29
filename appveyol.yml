@@ -22,3 +22,4 @@ cache:
   - C:\Users\appveyor\.gradle
 on_failure:
   - echo Somebody setup us the bomb
+  
