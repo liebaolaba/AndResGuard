@@ -341,7 +341,7 @@ public class ResourceApkBuilder {
     }
 
 
-    // ★ 额外：把解压目录下原始 res/ 里的孤立文件也加进去
+    // 额外：把解压目录下原始 res/ 里的孤立文件也加进去
 //    File originalResDir = new File(tempOutDir, "res");
 //    if (originalResDir.exists() && originalResDir.isDirectory()) {
 //      File[] orphanFiles = originalResDir.listFiles();
