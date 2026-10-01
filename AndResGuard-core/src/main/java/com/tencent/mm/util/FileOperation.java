@@ -127,12 +127,12 @@ public class FileOperation {
     File dirObj = new File(dir).getAbsoluteFile();
     String path = dirObj.getPath();
 
-    // ★ 安全检查：不能是根目录
+    // 安全检查：不能是根目录
     File parent = dirObj.getParentFile();
     if (parent == null) {
       throw new IOException("refuse to delete root: " + path);
     }
-    // ★ 安全检查：路径长度至少 3（避免 D:\ 这种）
+    // 安全检查：路径长度至少 3（避免 D:\ 这种）
     if (path.length() < 3) {
       throw new IOException("refuse to delete short path: " + path);
     }
