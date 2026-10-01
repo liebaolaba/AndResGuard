@@ -763,7 +763,7 @@ public class ARSCDecoder {
               : TypedValue.RES_FILE_PATH;      // keepRoot=false → r/xxx
 
       String full = basePath + "/" + name;
-      // ★ 检查 mOldFileName 里是否已用（包括目录和文件）
+      //  检查 mOldFileName 里是否已用（包括目录和文件）
       boolean used = false;
       for (String v : mOldFileName.values()) {
         if (v.equals(full) || v.startsWith(full + "/")) {
@@ -776,11 +776,11 @@ public class ARSCDecoder {
         continue;
       }
 
-      // ★ 检查 mOrphanDir / mDefaultDir 已生成的
+      //  检查 mOrphanDir / mDefaultDir 已生成的
       if (mOrphanDir != null && mOrphanDir.equals(full)) continue;
       if (mDefaultDir != null && mDefaultDir.equals(full)) continue;
 
-      // ★ 检查磁盘上是否已存在
+      //  检查磁盘上是否已存在
       File dir = new File(mApkDecoder.getOutDir(), full);
       if (dir.exists()) {
         System.out.printf("[dir] skip on-disk: %s\n", full);
@@ -801,7 +801,7 @@ public class ARSCDecoder {
       mGlobalBuilder = new ResguardStringBuilder();
       mGlobalBuilder.reset(null);
 
-      // ★ 移除 mOldFileName 已用的短名
+      //  移除 mOldFileName 已用的短名
       List<String> used = new ArrayList<>();
       for (String v : mOldFileName.values()) {
         int slash = v.lastIndexOf("/");
@@ -858,7 +858,7 @@ public class ARSCDecoder {
     seed = (seed ^ (seed >>> 27)) * 0x94D049BB133111EBL;
     seed = seed ^ (seed >>> 31);
 
-    // ★ 保证至少 2 位（补 0）
+    //  保证至少 2 位（补 0）
     String s = Long.toString(seed & 0xFFFFFFFFL, 36);
     while (s.length() < 2) s = "0" + s;
     return s;
@@ -923,7 +923,7 @@ public class ARSCDecoder {
 ////          // 孤立文件：用整条路径查
 ////          String fullMapping = mOldFileName.get(raw);    // "res/-9.png" → "r/c"
 ////          if (fullMapping == null) {
-////            // ★ 动态生成一个新名字
+////            //  动态生成一个新名字
 ////            if (mOrphanDir == null) {
 //////              mOrphanDir = TypedValue.RES_FILE_PATH + "/" + mResguardBuilder.getReplaceString();
 ////              mOrphanDir = generateSpecialDirName();
@@ -941,7 +941,7 @@ public class ARSCDecoder {
 //          String fullMapping = mOldFileName.get(raw);
 //          if (fullMapping == null) {
 //            if (confige.mKeepRoot) {
-//              // ★ keepRoot=true：孤立文件保留在 res/
+//              //  keepRoot=true：孤立文件保留在 res/
 //              fullMapping = dirPath;
 //            } else {
 //              if (mOrphanDir == null) {
@@ -1116,7 +1116,7 @@ public class ARSCDecoder {
           mApkDecoder.removeCopiedResFile(resRawFile.toPath());
           mTableStringsResguard.put(data, result);
           sArscPaths.add(raw);   // "res/con.xml"
-//          System.out.printf("★★ put data=%d, raw=%s, result=%s\n", data, raw, result);
+//          System.out.printf(" put data=%d, raw=%s, result=%s\n", data, raw, result);
         }
       }
     }
